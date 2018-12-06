@@ -33,10 +33,15 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
+<<<<<<< HEAD
 
 		if not nums:
             return 0
         
+=======
+	if not nums: return 0
+	
+>>>>>>> 04efa4d3cb28b0286896a1329215c7063bac8a35
         if len(nums) == 1:
             return nums[0]
         
