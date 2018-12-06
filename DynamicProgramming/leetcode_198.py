@@ -33,15 +33,9 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
-<<<<<<< HEAD
-
-		if not nums:
+    	if not nums:
             return 0
-        
-=======
-	if not nums: return 0
 	
->>>>>>> 04efa4d3cb28b0286896a1329215c7063bac8a35
         if len(nums) == 1:
             return nums[0]
         
@@ -59,5 +53,3 @@ class Solution:
             dp[i] = max(dp[i-2] + nums[i], dp[i-1])
         
         return dp[-1]
-
-
