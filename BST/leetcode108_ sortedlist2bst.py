@@ -32,7 +32,6 @@ class Solution(object):
             return TreeNode(nums[0])
         
         middex = int(len(nums)/2)
-        # print(middex)
         midnode = TreeNode(nums[middex])
         
         midnode.left = self.sortedArrayToBST(nums[:middex])
