@@ -32,3 +32,17 @@ class Solution(object):
         :type postorder: List[int]
         :rtype: TreeNode
         """
+        def totree(in_order, post_order):
+            if not post_order:
+                return
+            
+            root = TreeNode(post_order[-1])
+            
+            middex = in_order.index(post_order[-1])
+            
+            root.left = totree(in_order[:middex], post_order[:middex])
+            root.right = totree(in_order[middex + 1:], post_order[middex : -1])
+
+            return root
+            
+        return totree(inorder, postorder)
