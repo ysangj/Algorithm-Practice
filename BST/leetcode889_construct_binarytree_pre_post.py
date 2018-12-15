@@ -25,6 +25,13 @@
 #         self.left = None
 #         self.right = None
 
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
 class Solution(object):
     def constructFromPrePost(self, pre, post):
         """
@@ -32,3 +39,23 @@ class Solution(object):
         :type post: List[int]
         :rtype: TreeNode
         """
+        def build(preorder, postorder):
+            if not preorder:
+                return None
+            if not postorder:
+                return None
+            if len(preorder) == 1:
+                return TreeNode(preorder[0])
+            if len(postorder) == 1:
+                return TreeNode(postorder[-1])
+            
+            root = TreeNode(preorder[0])
+            
+            post_last = postorder[-2]
+            
+            dex = preorder.index(post_last) - 1
+
+            root.left = build(preorder[1:dex + 1], postorder[:dex])
+            root.right = build(preorder[dex + 1:], postorder[dex:-1])
+            return root
+        return build(pre, post)            
