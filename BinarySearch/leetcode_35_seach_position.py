@@ -19,7 +19,6 @@
 # Input: [1,3,5,6], 0
 # Output: 0
 
-
 class Solution(object):
     def searchInsert(self, nums, target):
         """
@@ -30,12 +29,17 @@ class Solution(object):
         l = 0
         r = len(nums) - 1
         m = 0
-        while l < r:
+        while l <= r:
             mid = (l+r)//2
             if nums[mid] < target:
                 l = mid + 1
+            elif nums[mid] > target:
+                r = mid - 1
             else:
-                r = mid
+                return mid
+        
+        if l >= len(nums):
+            return len(nums)
         if nums[l] < target:
             return l+1
         else:
