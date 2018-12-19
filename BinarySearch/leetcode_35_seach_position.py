@@ -44,3 +44,31 @@ class Solution(object):
             return l+1
         else:
             return l
+
+    def searchInsertAlternativeSol(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+
+        l = 0
+        r = len(nums)-1
+        m = 0
+        while l < r:
+            mid = (l+r)//2
+            m = mid
+            if nums[mid] < target:
+                l = mid + 1
+            else:
+                r = mid
+        
+#         Note that after the while loop above, l can be up to len(nums)-1.
+#         If target is larger then the last element of nums, we return len(nums), 
+#         which is l + 1, and l can be up to len(nums) - 1.
+        
+#         Out side the while loop, nums[l] is likely to be target. 
+
+        if nums[l] < target:
+            return l + 1
+        return l
