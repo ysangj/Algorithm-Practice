@@ -44,6 +44,7 @@ class Solution(object):
             return l+1
         else:
             return l
+        # In this solution, l ends up being r+1, which means it can be len(nums) + 1.
 
     def searchInsertAlternativeSol(self, nums, target):
         """
